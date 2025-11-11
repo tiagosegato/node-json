@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const PORT = 3000;
 
 // permite que o Express interprete automaticamente o corpo das requisições em formato JSON.
 app.use(express.json());
@@ -21,7 +22,7 @@ app.get('/usuarios', (req, res) => {
 app.post('/usuarios', (req, res) => {
     //console.log(req.body);
     usuarios.push(req.body); // adiciona esse novo objeto ao array existente usuarios.
-    res.json(usuarios); //devolve o array atualizado como resposta. = linha 16
+    res.json(usuarios); //devolve o array atualizado como resposta. = linha 17
 });
 
 // Cria uma rota DELETE no caminho /usuarios/:id, usada para remover um usuário específico do array usuarios.
@@ -40,7 +41,6 @@ app.put('/usuarios/:id', (req, res) => {
     res.json(usuarios); //idem anteriores
 });
 
-
-app.listen(3000, () => {
-    console.log("Aplicação rodando na porta 3000!");
+app.listen(PORT, () => {
+    console.log(`Aplicação rodando na porta ${PORT}!!!!`);
 });
